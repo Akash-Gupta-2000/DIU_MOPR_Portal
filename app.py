@@ -49,6 +49,7 @@ if selected_year in kpi_stats:
         ]
     }
     kpi_df = pd.DataFrame(kpi_data)
+    kpi_df.index = kpi_df.index + 1
     st.table(kpi_df)
 else:
     st.write("No KPI data available for the selected year.")
