@@ -4,12 +4,12 @@ from PIL import Image
 import pandas as pd
 
 # Set the app title and a header
-st.set_page_config(page_title="State Financial KPI Dashboard", layout="wide")
-st.title("📊 State Financial KPI Dashboard")
+st.set_page_config(page_title="Manthan KPI Dashboard", layout="wide")
+st.title("📊 Manthan KPI Dashboard")
 
 # Add a custom description
 st.markdown("""
-Welcome to the State Financial Dashboard. Here, you can explore key performance indicators (KPIs) and graphs 
+Welcome to the Manthan Dashboard. Here, you can explore key performance indicators (KPIs) and graphs 
 for different states and financial years. Use the sidebar to select the state and year.
 """)
 
@@ -86,11 +86,19 @@ if graphs:
         image = Image.open(graph_file_path)
         
         # Display graphs in alternating columns
+        caption_text = f"Graph: {graph.split('.')[0]}"
+        
+        # Display graphs in alternating columns
         if i % 2 == 0:
             with col1:
                 st.image(image, caption=None, use_column_width=True)
+                st.markdown(f"<div style='text-align:center; margin-top:10px; font-size:16px; font-weight:bold;'>{caption_text}</div>", unsafe_allow_html=True)
         else:
             with col2:
                 st.image(image, caption=None, use_column_width=True)
+                st.markdown(f"<div style='text-align:center; margin-top:10px; font-size:16px; font-weight:bold;'>{caption_text}</div>", unsafe_allow_html=True)
+        
+        # Add vertical space between images
+        st.markdown("<div style='margin-bottom:30px;'></div>", unsafe_allow_html=True)
 else:
     st.warning("No graphs available for the selected year.")
