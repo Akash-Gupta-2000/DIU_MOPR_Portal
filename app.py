@@ -66,4 +66,4 @@ st.write(f"## Graphs for {selected_state} - {selected_year}")
 for graph in graphs:
     graph_file_path = os.path.join(graphs_path, graph)
     image = Image.open(graph_file_path)
-    st.image(image, caption=graph, use_column_width=True)
+    st.image(image, caption=None, use_column_width=True)
