@@ -88,9 +88,9 @@ if graphs:
         # Display graphs in alternating columns
         if i % 2 == 0:
             with col1:
-                st.image(image, caption=graph, use_column_width=True)
+                st.image(image, caption=None, use_column_width=True)
         else:
             with col2:
-                st.image(image, caption=graph, use_column_width=True)
+                st.image(image, caption=None, use_column_width=True)
 else:
     st.warning("No graphs available for the selected year.")
